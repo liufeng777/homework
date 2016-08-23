@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .divFather{
+            width:200px;
+            height:200px;
+            position: relative;
+        }
+        .div1{
+            background-color: #000;
+        }
+        .div2{
+            background-color: #ff0000;
+        }
+        .divSon{
+            width:100px;
+            height:50px;
+            background-color: #fff;
+            position: absolute;
+            overflow: hidden;
+            display: none;
+            z-index: 100;
+        }
+        ul li{
+            list-style: none;
+            width:100px;
+            height:24px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+            color:#666;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1 divFather">
+        <div class="div11 divSon">
+            <ul>
+                <li>优才</li>
+                <li>百度</li>
+            </ul>
+        </div>
+    </div>
+    <div class="div2 divFather">
+        <div class="div22 divSon">
+            <ul>
+                <li>HTML/CSS</li>
+                <li>JavaScript</li>
+            </ul>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
