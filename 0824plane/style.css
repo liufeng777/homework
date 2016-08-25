@@ -1,0 +1,39 @@
+*{
+    margin:0;
+    padding: 0;
+}
+img{
+    border:none;
+}
+.container{
+    width:550px;
+    height:400px;
+    margin:20px auto;
+    background: url(images/background.png);
+    position: relative;
+	overflow:hidden;
+
+}
+.gun{
+    width:49px;
+    height:47px;
+    background: url(images/gun.png);
+    position: absolute;
+    top:353px;
+    left:250px;
+}
+.plane{
+    width:69px;
+    height:26px;
+    position: absolute;
+    top:10px;
+}
+.ball{
+	width:20px;
+	height:20px;
+	background-color:#F90;
+	border-radius:50%;
+	left:265px;
+	position:absolute;
+	
+	}
