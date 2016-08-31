@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container1{
+            width:500px;
+            height:800px;
+            float: left;
+        }
+        #container2{
+            width:500px;
+            height:800px;
+            float:right;
+        }
+        .trash{
+            width:100px;
+            height:100px;
+            margin:10px;
+        }
+        #trash1{
+           background-color:#003eff ;
+        }
+        #trash2{
+            background-color: #00ff44;
+        }
+        #trash3{
+            background-color:#2d2d2d;
+        }
+        .can{
+            width:200px;
+            height:200px;
+            background-color: #999;
+            margin: 10px;
+        }
+    </style>
+    <script src="jquery-3.1.0.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="jquery-ui.css"></script>
+</head>
+<body>
+    <div id="container1">
+        <div id="trash1" class="trash">饮料瓶</div>
+        <div id="trash2" class="trash">菜叶</div>
+        <div id="trash3" class="trash">电池</div>
+    </div>
+    <div id="container2">
+        <div id="trashCan1" class="can">厨房垃圾</div>
+        <div id="trashCan2" class="can">污染物</div>
+        <div id="trashCan3" class="can">可回收垃圾</div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
