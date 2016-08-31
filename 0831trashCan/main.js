@@ -12,6 +12,7 @@ $(function () {
             $("div").remove("#trash1");
         }
     })
+
     $("#trash2").draggable({
         scope:"group2",
     });
@@ -22,6 +23,7 @@ $(function () {
             $("div").remove("#trash2");
         }
     })
+    
     $("#trash3").draggable({
         scope:"group3",
     });
