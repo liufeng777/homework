@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common/jquery.js"></script>
+    <script src="common/jquery.mobile-1.4.5.js"></script>
+    <link href="common/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div data-role="page" id="home">
+        <div data-role="header" >
+            <h1>首页</h1>
+        </div>
+        <div data-role="main">
+            <div data-role="controlGroup" data-type="horizontal">
+                <a href="#showPop1" data-role="button" data-inline="true" data-rel="popup" id="html">HTML</a>
+                <a href="#showPop2" data-role="button" data-inline="true" data-rel="popup" id="js">javaScript</a>
+                <a href="#showPop3" data-role="button" data-inline="true" data-rel="popup" id="jq">jQuery</a>
+            </div>
+        </div>
+        <div data-role="popup" id="showPop1"  data-position-to="#html" data-arrow="t" >
+            <!--关闭按钮-->
+            <a href="#" data-rel="back" class="ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+            <p>Hello Html</p>
+        </div>
+        <div data-role="popup" id="showPop2"  data-position-to="#js" data-arrow="t" >
+            <!--关闭按钮-->
+            <a href="#" data-rel="back" class="ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+            <p>Hello javaScript</p>
+        </div>
+        <div data-role="popup" id="showPop3"  data-position-to="#jq" data-arrow="t" >
+            <!--关闭按钮-->
+            <a href="#" data-rel="back" class="ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+            <p>Hello jQuery</p>
+        </div>
+    </div>
+</body>
+</html>
