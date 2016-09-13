@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.0.js"></script>
+    <style>
+
+        .container{
+            width:300px;
+            height:480px;
+            margin:50px auto;
+            border: 1px solid #f0f0f0;
+            background-color: #fafafa;
+            font-size: 20px;
+            color: #666;
+            padding:0 10px;
+
+        }
+        #random{
+            width:100px;
+            height:30px;
+            background-color:#000;
+            margin-left: 170px;
+            margin-top:20px;
+            text-align: center;
+            color:#fff;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 30px;
+        }
+        span{
+            color: #fafafa;
+        }
+        input{
+           margin-top:30px;
+            height:30px;
+
+        }
+        .submit{
+            width:200px;
+            height:40px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 50px;
+            background-color:#ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <span>名</span>用户名：<input type="text" pattern="[A-z0-9]{6,}" id="name" required="required" placeholder="请输入用户名"/><br/>
+            设置密码：<input type="password" pattern="[A-z0-9]{6,}" id="password1" required="required" placeholder="请输入密码"/><br/>
+            确认密码：<input type="password"  id="password2" required="required" placeholder="请确认密码"/><br/>
+            手机验证：<input type="text"  id="telNum" pattern="^[1][0-9]{10}"required="required" placeholder="请输入手机号"/><br/>
+            <span>名</span>验证码：<input type="text" id="code"required="required" placeholder="请输入验证码"/>
+
+            <div id="random"></div>
+
+            <input type="submit" value="提交" class="submit"/>
+        </form>
+    </div>
+<script src="main2.js"></script>
+</body>
+</html>
