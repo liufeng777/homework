@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .btns{
+            float:right;
+            margin-right: 300px;
+        }
+        .btns li{
+            display: inline-block;
+            list-style: none;
+            width:25px;
+            height:25px;
+            border-radius: 50%;
+            background-color: #000;
+            font-size: 20px;
+            font-weight:bold;
+            color:#fff;
+            text-align: center;
+            line-height: 25px;
+            cursor: pointer;
+        }
+        .div{
+            position: absolute;
+            width:64px;
+            height:576px;
+        }
+        .container{
+            width:1024px;
+            height:576px;
+            margin:0 auto;
+        }
+        .div-box{
+           float:left;
+            width:64px;
+            height:576px;
+            margin-top:100px;
+            -webkit-perspective-origin: 50% 50%;
+            -webkit-transform-style:preserve-3d;
+            position: relative;
+
+        }
+        .div1{
+            transition:all 2s linear;
+        }
+        .div2{
+            transition:all 2s linear 0.05s;
+        }
+        .div3{
+            transition:all 2s linear 0.1s;
+        }
+        .div4{
+            transition:all 2s linear 0.15s;
+        }
+        .div5{
+            transition:all 2s linear 0.2s;
+        }
+        .div6{
+            transition:all 2s linear 0.25s;
+        }
+        .div7{
+            transition:all 2s linear 0.3s;
+        }
+        .div8{
+            transition:all 2s linear 0.35s;
+        }
+        .div9{
+            transition:all 2s linear 0.4s;
+        }
+        .div00{
+            transition:all 2s linear 0.45s;
+        }
+        .div001{
+            transition:all 2s linear 0.5s;
+        }
+        .div02{
+            transition:all 2s linear 0.55s;
+        }
+        .div03{
+            transition:all 2s linear 0.6s;
+        }
+        .div04{
+            transition:all 2s linear 0.65s;
+        }
+        .div05{
+            transition:all 2s linear 0.7s;
+        }
+        .div06{
+            transition:all 2s linear 0.75s;
+        }
+
+
+        .div11{
+            background: url("1.jpg") 0 0;
+            transform: translateZ(288px);
+        }
+        .div12{
+            background: url("1.jpg") -64px 0;
+            transform: translateZ(288px);
+        }
+        .div13{
+            background: url("1.jpg") -128px 0;
+            transform: translateZ(288px);
+        }
+        .div14{
+            background: url("1.jpg") -192px 0;
+            transform: translateZ(288px);
+        }
+        .div15{
+            background: url("1.jpg") -256px 0;
+            transform: translateZ(288px);
+        }
+        .div16{
+            background: url("1.jpg") -320px 0;
+            transform: translateZ(288px);
+        }
+        .div17{
+            background: url("1.jpg") -384px 0;
+            transform: translateZ(288px);
+        }
+        .div18{
+            background: url("1.jpg") -448px 0;
+            transform: translateZ(288px);
+        }
+        .div19{
+            background: url("1.jpg") -512px 0;
+            transform: translateZ(288px);
+        }
+        .div10{
+            background: url("1.jpg") -576px 0;
+            transform: translateZ(288px);
+        }
+        .div111{
+            background: url("1.jpg") -640px 0;
+            transform: translateZ(288px);
+        }
+        .div112{
+            background: url("1.jpg") -704px 0;
+            transform: translateZ(288px);
+        }
+        .div113{
+            background: url("1.jpg") -768px 0;
+            transform: translateZ(288px);
+        }
+        .div114{
+            background: url("1.jpg") -832px 0;
+            transform: translateZ(288px);
+        }
+        .div115{
+            background: url("1.jpg") -896px 0;
+            transform: translateZ(288px);
+        }
+        .div116{
+            background: url("1.jpg") -960px 0;
+            transform: translateZ(288px);
+        }
+
+
+
+
+        .div31{
+            background: url("3.jpg") 0 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div32{
+            background: url("3.jpg") -64px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div33{
+            background: url("3.jpg") -128px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div34{
+            background: url("3.jpg") -192px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div35{
+            background: url("3.jpg") -256px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div36{
+            background: url("3.jpg") -320px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div37{
+            background: url("3.jpg") -384px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+
+        }
+        .div38{
+            background: url("3.jpg") -448px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div39{
+            background: url("3.jpg") -512px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div30{
+            background: url("3.jpg") -576px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div311{
+            background: url("3.jpg") -640px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div312{
+            background: url("3.jpg") -704px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div313{
+            background: url("3.jpg") -768px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div314{
+            background: url("3.jpg") -832px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div315{
+            background: url("3.jpg") -896px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+        .div316{
+            background: url("3.jpg") -960px 0;
+            transform: rotateX(180deg)  translateZ(288px);
+        }
+
+        .div21{
+            background: url("2.jpg") 0 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div22{
+            background: url("2.jpg") -64px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div23{
+            background: url("2.jpg") -128px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div24{
+            background: url("2.jpg") -192px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div25{
+            background: url("2.jpg") -256px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div26{
+            background: url("2.jpg") -320px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div27{
+            background: url("2.jpg") -384px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div28{
+            background: url("2.jpg") -448px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div29{
+            background: url("2.jpg") -512px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div20{
+            background: url("2.jpg") -576px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div211{
+            background: url("2.jpg") -640px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div212{
+            background: url("2.jpg") -704px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div213{
+            background: url("2.jpg") -768px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div214{
+            background: url("2.jpg") -832px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div215{
+            background: url("2.jpg") -896px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+        .div216{
+            background: url("2.jpg") -960px 0;
+            transform: rotateX(-90deg)  translateZ(288px);
+        }
+
+
+
+        .div41{
+            background: url("4.jpg") 0 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div42{
+            background: url("4.jpg") -64px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div43{
+            background: url("4.jpg") -128px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div44{
+            background: url("4.jpg") -192px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div45{
+            background: url("4.jpg") -256px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div46{
+            background: url("4.jpg") -320px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div47{
+            background: url("4.jpg") -384px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div48{
+            background: url("4.jpg") -448px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div49{
+            background: url("4.jpg") -512px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div40{
+            background: url("4.jpg") -576px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div411{
+            background: url("4.jpg") -640px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div412{
+            background: url("4.jpg") -704px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div413{
+            background: url("4.jpg") -768px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div414{
+            background: url("4.jpg") -832px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div415{
+            background: url("4.jpg") -896px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+        .div416{
+            background: url("4.jpg") -960px 0;
+            transform: rotateX(-90deg)  translateZ(-288px);
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="div1 div-box">
+        <div class="div11 div div01"></div>
+        <div class="div21 div div01"></div>
+        <div class="div41 div div01"></div>
+        <div class="div31 div div01"></div>
+    </div>
+    <div class="div2 div-box">
+        <div class="div12 div div01"></div>
+        <div class="div22 div div01"></div>
+        <div class="div42 div div01"></div>
+        <div class="div32 div div01"></div>
+    </div>
+    <div class="div3 div-box">
+        <div class="div13 div div01"></div>
+        <div class="div23 div div01"></div>
+        <div class="div43 div div01"></div>
+        <div class="div33 div div01"></div>
+    </div>
+    <div class="div4 div-box">
+        <div class="div14 div div01"></div>
+        <div class="div24 div div01"></div>
+        <div class="div44 div div01"></div>
+        <div class="div34 div div01"></div>
+    </div>
+    <div class="div5 div-box">
+        <div class="div15 div div01"></div>
+        <div class="div25 div div01"></div>
+        <div class="div45 div div01"></div>
+        <div class="div35 div div01"></div>
+    </div>
+    <div class="div6 div-box">
+        <div class="div16 div div01"></div>
+        <div class="div26 div div01"></div>
+        <div class="div46 div div01"></div>
+        <div class="div36 div div01"></div>
+    </div>
+    <div class="div7 div-box">
+        <div class="div17 div div01"></div>
+        <div class="div27 div div01"></div>
+        <div class="div47 div div01"></div>
+        <div class="div37 div div01"></div>
+    </div>
+
+    <div class="div8 div-box">
+        <div class="div18 div div01"></div>
+        <div class="div28 div div01"></div>
+        <div class="div48 div div01"></div>
+        <div class="div38 div div01"></div>
+    </div>
+    <div class="div9 div-box">
+        <div class="div19 div div01"></div>
+        <div class="div29 div div01"></div>
+        <div class="div49 div div01"></div>
+        <div class="div39 div div01"></div>
+    </div>
+    <div class="div00 div-box">
+        <div class="div10 div div01"></div>
+        <div class="div20 div div01"></div>
+        <div class="div40 div div01"></div>
+        <div class="div30 div div01"></div>
+    </div>
+
+    <div class="div001 div-box">
+        <div class="div111 div div01"></div>
+        <div class="div211 div div01"></div>
+        <div class="div411 div div01"></div>
+        <div class="div311 div div01"></div>
+    </div>
+    <div class="div02 div-box">
+        <div class="div112 div div01"></div>
+        <div class="div212 div div01"></div>
+        <div class="div412 div div01"></div>
+        <div class="div312 div div01"></div>
+    </div>
+    <div class="div03 div-box">
+        <div class="div113 div div01"></div>
+        <div class="div213 div div01"></div>
+        <div class="div413 div div01"></div>
+        <div class="div313 div div01"></div>
+    </div>
+    <div class="div04 div-box">
+        <div class="div114 div div01"></div>
+        <div class="div214 div div01"></div>
+        <div class="div414 div div01"></div>
+        <div class="div314 div div01"></div>
+    </div>
+    <div class="div05 div-box">
+        <div class="div115 div div01"></div>
+        <div class="div215 div div01"></div>
+        <div class="div415 div div01"></div>
+        <div class="div315 div div01"></div>
+    </div>
+    <div class="div06 div-box">
+        <div class="div116 div div01"></div>
+        <div class="div216 div div01"></div>
+        <div class="div416 div div01"></div>
+        <div class="div316 div div01"></div>
+    </div>
+
+</div>
+
+<ul class="btns">
+    <li class="li1">1</li>
+    <li class="li2">2</li>
+    <li class="li3">3</li>
+    <li class="li4">4</li>
+</ul>
+<script src="main.js"></script>
+</body>
+</html>
