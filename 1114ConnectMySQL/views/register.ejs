@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link href="/jquery.mobile-1.4.5.css" rel="stylesheet"/>
+    <link href="/jquery.mobile.structure-1.4.5.css" rel="stylesheet"/>
+    <link href="/jquery.mobile.theme-1.4.5.css" rel="stylesheet"/>
+
+    <script src="/jquery.min.js"></script>
+    <script src="/jquery.mobile-1.4.5.js"></script>
+</head>
+<body>
+<h1><%= title %></h1>
+
+
+<div data-role="page" id="register">
+    <form id="form-register">
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td><input type="text" required="required" name="user"></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" required="required" name="pass"></td>
+            </tr>
+            <tr>
+                <td>年龄：</td>
+                <td><input type="number" required="required" name="age"></td>
+            </tr>
+        </table>
+        <input type="submit" value="注册">
+        <a href="#login">直接登录</a>
+    </form>
+</div>
+
+<div data-role="page" id="login">
+    <form id="form-login">
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td><input type="text" required="required" name="user" id="login-user"></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" required="required" name="pass"></td>
+            </tr>
+            <tr>
+                <td>年龄：</td>
+                <td><input type="number" required="required" name="age"></td>
+            </tr>
+        </table>
+        <input type="submit" value="登录">
+        <a href="#register">注册</a>
+    </form>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
