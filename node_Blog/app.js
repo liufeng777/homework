@@ -4,6 +4,8 @@ const express = require('express');
 const swig = require('swig');
 // 加载数据库模块
 const mongoose = require('mongoose');
+// 加载body-parser模块，用来处理post来的数据
+const bodyParser = require('body-parser');
 
 // 创建app应用 => NodeJS中的http.createServer();
 const app = express();
@@ -26,20 +28,22 @@ app.use('/public', express.static(__dirname + '/public'));
 // 在开发过程中需要将模板缓存取消
 swig.setDefaults({ cache: false });
 
+// bodyParser设置,bodyParser.urlencoded()用来处理post传来的数据，会在request对象上加上一个body属性,保存着post提交的数据
+app.use(bodyParser.urlencoded({ extended: true })); // 注bodyParser必须写在路由的前面
+
 // 分模块管理：前台页面模块、后台管理模块、ajax请求接口的API模块
 app.use('/', require('./routers/main'));
 app.use('/admin', require('./routers/admin'));
 app.use('/api', require('./routers/api'));
 
 // 链接数据库
-// mongoose.connect('mongodb://localhost:27018/blog', function (err) {
-// 	if(err) {
-// 		console.log('数据库链接失败！' + err);
-// 	} else {
-// 		console.log('数据库链接成功！');
-// 		// 监听http请求
-// 		app.listen(8080);
-// 	}
-// });
-// 监听http请求
-app.listen(8080);
+mongoose.connect('mongodb://localhost:27018/blog', function (err) {
+	if(err) {
+		console.log('数据库链接失败！' + err);
+	} else {
+		console.log('数据库链接成功！');
+		// 监听http请求
+		app.listen(8080);
+	}
+});
+

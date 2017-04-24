@@ -54,10 +54,11 @@
 					</div>
 				</div>
 				<div class='main-right'>
-					<div class='right-box' style='display: none;'>
+					<div class='right-box' id='userInfo-box' style='display: none;'>
 						<h4>用户信息</h4>
-						<p>admin你好，你是管理员，<a href='#'>请点击这里进入管理页面</a></p>
-						<p><a href='#'>退出</a></p>
+						<p class='userInfo-name'></p>
+						<p class='userInfo-notice'></p>
+						<p><a href='javascript:;'>退出</a></p>
 					</div>
 					<div class='right-box' id='login-box'>
 						<h4>登录</h4>
@@ -67,6 +68,7 @@
 						</form>
 						<div><button name='submit' class='submit-btn'>登录</button></div>
 						<div class='change-box'><a href='javascript:;'>马上注册</a></div>
+						<p class='responseData'></p>
 					</div>
 					<div class='right-box' id='register-box' style='display: none;'>
 						<h4>注册</h4>
@@ -77,6 +79,7 @@
 						</form>
 						<div><button name='submit' class='submit-btn'>注册</button></div>
 						<div class='change-box'><a href='javascript:;'>直接登录</a></div>
+						<p class='responseData'></p>
 					</div>
 				</div>
 			</div>
