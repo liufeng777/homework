@@ -8,13 +8,7 @@ $(function(){
 		loginBox.hide();
 		registerBox.show();		
 		registerBox.find('.responseData').html('');
-	});
-
-	userInfoBox.find('a').on('click', function() {
-		userInfoBox.hide();
-		registerBox.show();	
-		registerBox.find('.responseData').html('');
-	})
+	});	
 
 	// 切换到登录
 	registerBox.find('a').on('click', function() {
@@ -59,17 +53,32 @@ $(function(){
 			dataType:'json',
 			success: function(result) {
 				loginBox.find('.responseData').html(result.message);
-				// 登录成功跳转到用户页面  你好，你是管理员，<a href='/admin'>请点击这里进入管理页面</a>
+				// 登录成功跳转到用户页面 
 				if(result.code === 0) {
 					setTimeout(function() {
-						userInfoBox.show();
-						loginBox.hide();
-						userInfoBox.find('.userInfo-name').html(result.userInfo.username);
-						userInfoBox.find('.userInfo-notice').html('你好，欢迎光临我的博客');
+						// userInfoBox.show();
+						// loginBox.hide();	
+						// userInfoBox.find('.userInfo-name').html(result.userInfo.username);
+						// userInfoBox.find('.userInfo-notice').html('你好，欢迎光临我的博客');
+
+						// 刷新页面，根据userInfo判断显示哪个版块											
+						window.location.reload();
 					}, 1000);
 				}
 			}
 		});
 	});
+
+	// 退出
+	userInfoBox.find('a').on('click', function() {
+		$.ajax({
+			url: 'api/user/logout',
+			success: function(result) {
+				if(!result.code) {
+					window.location.reload();
+				}
+			},
+		})
+	})
 	
 })

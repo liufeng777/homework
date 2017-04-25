@@ -106,7 +106,18 @@ router.post('/user/login', function(req, res, next) {
 			_id: userInfo._id,
 			username: userInfo.username,
 		};
+		// 设置一个cookie信息，下一次访问页面会将cookie放在头信息里面，发给服务端
+		req.cookies.set('userInfo', JSON.stringify({
+			_id: userInfo._id,
+			username: userInfo.username,
+		}));
 		res.json(responseData);
 	})
-})
+});
+
+// 用户退出
+router.get('/user/logout', function(req, res) {
+	req.cookies.set('userInfo', null);	
+	res.json(responseData);
+});
 module.exports = router;

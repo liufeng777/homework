@@ -6,6 +6,10 @@ const swig = require('swig');
 const mongoose = require('mongoose');
 // 加载body-parser模块，用来处理post来的数据
 const bodyParser = require('body-parser');
+//加载cookies模块，用来记录用户登录信息
+const Cookies = require('cookies');
+// 加载数据库User
+const User = require('./models/User');
 
 // 创建app应用 => NodeJS中的http.createServer();
 const app = express();
@@ -30,6 +34,28 @@ swig.setDefaults({ cache: false });
 
 // bodyParser设置,bodyParser.urlencoded()用来处理post传来的数据，会在request对象上加上一个body属性,保存着post提交的数据
 app.use(bodyParser.urlencoded({ extended: true })); // 注bodyParser必须写在路由的前面
+
+// 设置cookies
+app.use(function(req, res, next) {
+	req.cookies = new Cookies(req, res);
+	// 获取cookie，并改为对象形式
+	req.userInfo = {};
+	if(req.cookies.get('userInfo')) {
+		try {
+			req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+
+			// 获取当前用户类型
+			User.findById(req.userInfo._id).then(function(userInfo) {
+				req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
+				next();
+			});
+		} catch(e) {
+			next();
+		}
+	} else {
+		next();
+	}	
+});
 
 // 分模块管理：前台页面模块、后台管理模块、ajax请求接口的API模块
 app.use('/', require('./routers/main'));
