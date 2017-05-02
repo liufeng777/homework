@@ -6,6 +6,9 @@
 			<th>ID</th>
 			<th>分类</th>
 			<th>标题</th>
+			<th>作者</th>
+			<th>创建时间</th>
+			<th>阅读量</th>			
 			<th>操作</th>			
 		</tr>
 		{% for content in contents %}
@@ -13,6 +16,10 @@
 				<td>{{ content._id.toString() }}</td>
 				<td>{{ content.category.name }}</td>				
 				<td>{{ content.title }}</td>
+				<td>{{ content.author.username }}</td>
+				<!-- 过滤器，在node_modules > swig > lib > filter.js中,offset参数东八区，偏移8个小时 -->
+				<td>{{ content.createTime | date('Y-m-d H:i:s', -8 * 60)}}</td>
+				<td>{{ content.views }}</td>
 				<td>
 					<a href='/admin/content/edit?id={{ content._id.toString() }}'>编辑</a> |
 					<a href='/admin/content/delete?id={{ content._id.toString() }}'>删除</a>

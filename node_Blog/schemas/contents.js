@@ -21,4 +21,19 @@ module.exports = new mongoose.Schema({
 		type: String,
 		default: '',
 	},
+	// 作者
+	author: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User',
+	},
+	// 创建时间
+	createTime: {
+		type: Object,		
+	},
+	// 阅读量
+	views: {
+		type: Number,
+		default: 0,
+	}
+
 });

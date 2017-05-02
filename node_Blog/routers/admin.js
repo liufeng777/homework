@@ -216,8 +216,8 @@ router.get('/content', function(req, res) {
 			page = 1;
 		}
 		skipNum = (page - 1) * limitNum;
-		// populate('category')将content的category字段映射到Category模型上，获取对应的记录
-		Content.find().sort({ _id: -1 }).limit(limitNum).skip(skipNum).populate('category').then(function(contents) {
+		// populate('category')将content的category字段映射到Category模型上，获取对应的记录,多个用数组表示
+		Content.find().sort({ _id: -1 }).limit(limitNum).skip(skipNum).populate(['category','author']).then(function(contents) {
 			res.render('admin/content_index.html', {
 				userInfo: req.userInfo,
 				contents: contents,
@@ -258,6 +258,8 @@ router.post('/content/add', function(req, res) {
 		title: req.body.title,
 		description: req.body.description,
 		content: req.body.content,
+		author: req.userInfo._id.toString(),
+		createTime: new Date(),
 	}).save(function() {
 		res.render('admin/success.html', {
 			userInfo: req.userInfo,
