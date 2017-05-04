@@ -53,10 +53,14 @@ body{
 	background-color: #fff;	
 	padding:10px 20px 20px 20px;
 }
-.main-title{
+.main-title, .main-infor{
 	width:100%;
 	text-align: center;
 	margin-bottom: 30px;
+}
+.main-infor span{
+	display: inline-block;
+	margin-left: 20px;
 }
 .main-btn{
 	background-color: #ff4400;
@@ -68,6 +72,27 @@ body{
 	font-size: 16px;
 	margin-top: 30px;
 	border-radius: 10px;
+}
+.left-page{
+	width:100%;
+	margin-bottom:20px;
+	background-color: #fff;	
+	padding: 0 10px;	
+}
+.left-page li{
+	display: inline-block;
+	width: 33%;
+	font-size: 16px;
+	color: #000;
+}
+.left-li{
+	text-align: left;
+}
+.center-li{
+	text-align: center;
+}
+.right-li{
+	text-align: right;
 }
 .main-right{
 	width:30%;

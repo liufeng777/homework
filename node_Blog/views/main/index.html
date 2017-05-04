@@ -25,32 +25,41 @@
 			</div>
 			<div class='main'>
 				<div class='main-left'>
+					{% for content in contents %}
 					<div class='main-article'>
 						<div class='main-title'>
-							<h3>NodeJS实战</h3>							
+							<h3>{content.title}</h3>													
+						</div>
+						<div class='main-infor'>							
+							<span>作者：{{ content.author.username }}</span>
+							<span>发表时间：{{ content.createTime | date('Y-m-d H:i:s', -8 * 60)}}</span>
+							<span>阅读量：{{ content.views }}</span>							
 						</div>
 						<div class='main-content'>
-							<p>NodeJS实战NodeJS实战NodeJS实战NodeJS实战NodeJS实战NodeJS实战</p>
+							<p>{{content.description}}</p>
 						</div>
 						<div class='main-btn'>阅读全文</div>
 					</div>
-					<div class='main-article'>
-						<div class='main-title'>
-							<h3>NodeJS实战</h3>							
-						</div>
-						<div class='main-content'>
-							<p>NodeJS实战NodeJS实战NodeJS实战NodeJS实战NodeJS实战NodeJS实战</p>
-						</div>
-						<div class='main-btn'>阅读全文</div>
-					</div><div class='main-article'>
-						<div class='main-title'>
-							<h3>NodeJS实战</h3>							
-						</div>
-						<div class='main-content'>
-							<p>NodeJS实战NodeJS实战NodeJS实战NodeJS实战NodeJS实战NodeJS实战</p>
-						</div>
-						<div class='main-btn'>阅读全文</div>
-					</div>
+					{% endfor %}
+					<div class='left-page'>
+						<li class="left-li">
+							{% if page <= 1 %}
+							<span>没有上一页了</span>
+							{% else %}
+							<a href='/?page={{ page - 1}}'>上一页</a>
+							{% endif %}
+						</li>
+						<li class="center-li">
+							{{ page }} / {{ totalPage }}
+						</li>
+						<li class="right-li">
+							{% if page >= totalPage %}
+							<span>没有下一页了</span>
+							{% else %}
+							<a href='/?page={{ page + 1}}'>下一页</a>
+							{% endif %}
+						</li>
+					</div>					
 				</div>
 				<div class='main-right'>
 					{% if userInfo._id %}
