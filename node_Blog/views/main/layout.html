@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>我的博客</title>		
+		<link rel='stylesheet' href='/public/css/reset.css' type='text/css'/>
+		<link rel='stylesheet' href='/public/css/main.css' type='text/css'/>
+		<script src='/public/js/jquery-3.2.1.min.js'></script>
+		<script src='/public/js/index.js'></script>
+	</head>
+	<body>
+		<div class='container'>
+			<div class='header'>
+				<div class='banner'>
+					<img src='public/images/banner.jpg'/>
+				</div>
+				<div class='nav'>
+					<ul>						
+						{% if category === '' %}
+						<li class='focus'><a href='/'>首页</a></li>
+						{% else %}
+						<li><a href='/'>首页</a></li>
+						{% endif %}						
+						
+						{% for categoryI in categories %}						
+							{% if category === categoryI._id.toString() %}
+							<li class='focus'><a href='/?category={{categoryI._id.toString()}}'>{{ categoryI.name }}</a></li>
+							{% else %}
+							<li><a href='/?category={{categoryI._id.toString()}}'>{{ categoryI.name }}</a>
+							{% endif %}</li>						
+						{% endfor %}		
+					</ul>
+				</div>
+			</div>
+			<div class='main'>
+				<div class='main-left'>
+					{% block content %}
+					{% endblock%}					
+				</div>
+				<div class='main-right'>
+					{% if userInfo._id %}
+					<div class='right-box' id='userInfo-box'>
+						<h4>用户信息</h4>
+						<p class='userInfo-name'>{{userInfo.username}}</p>
+						{% if userInfo.isAdmin %}
+						<p class='userInfo-notice'>你好管理员，<a href='/admin'>请点击这里进入管理页面</a></p>
+						{% else %}
+						<p class='userInfo-notice'>你好，欢迎光临我的博客！</p>
+						{% endif %}						
+						<p><a href='javascript:;'>退出</a></p>
+					</div>
+					{% else %}
+					<div class='right-box' id='login-box'>
+						<h4>登录</h4>
+						<form>
+							<span>用户名：</span><input type='text' name='username'/><br/><br/>
+							<span>密码：</span><input type='password' name='password'/><br/><br/>			
+						</form>
+						<div><button name='submit' class='submit-btn'>登录</button></div>
+						<div class='change-box'><a href='javascript:;'>马上注册</a></div>
+						<p class='responseData'></p>
+					</div>
+					<div class='right-box' id='register-box' style='display: none;'>
+						<h4>注册</h4>
+						<form>
+							<span>用户名：</span><input type='text' name='username'/><br/><br/>
+							<span>密码：</span><input type='password' name='password'/><br/><br/>	
+							<span>确认密码：</span><input type='password' name='repassword'/><br/><br/>	
+						</form>
+						<div><button name='submit' class='submit-btn'>注册</button></div>
+						<div class='change-box'><a href='javascript:;'>直接登录</a></div>
+						<p class='responseData'></p>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+			<div class='footer'></div>
+		</div>
+	</body>
+</html>
