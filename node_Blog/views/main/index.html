@@ -15,10 +15,19 @@
 					<img src='public/images/banner.jpg'/>
 				</div>
 				<div class='nav'>
-					<ul>
-						<li><a href='#'>首页</a></li>
-						{% for category in categories %}
-						<li><a href='#'>{{ category.name }}</a></li>
+					<ul>						
+						{% if category === '' %}
+						<li class='focus'><a href='/'>首页</a></li>
+						{% else %}
+						<li><a href='/'>首页</a></li>
+						{% endif %}						
+						
+						{% for categoryI in categories %}						
+							{% if category === categoryI._id.toString() %}
+							<li class='focus'><a href='/?category={{categoryI._id.toString()}}'>{{ categoryI.name }}</a></li>
+							{% else %}
+							<li><a href='/?category={{categoryI._id.toString()}}'>{{ categoryI.name }}</a>
+							{% endif %}</li>						
 						{% endfor %}		
 					</ul>
 				</div>
@@ -28,12 +37,12 @@
 					{% for content in contents %}
 					<div class='main-article'>
 						<div class='main-title'>
-							<h3>{content.title}</h3>													
+							<h3>{{content.title}}</h3>													
 						</div>
 						<div class='main-infor'>							
-							<span>作者：{{ content.author.username }}</span>
-							<span>发表时间：{{ content.createTime | date('Y-m-d H:i:s', -8 * 60)}}</span>
-							<span>阅读量：{{ content.views }}</span>							
+							作者：<span>{{ content.author.username }}</span>
+							发表时间：<span>{{ content.createTime | date('Y-m-d H:i:s', -8 * 60)}}</span>
+							阅读量：<span>{{ content.views }}</span>							
 						</div>
 						<div class='main-content'>
 							<p>{{content.description}}</p>
@@ -42,23 +51,27 @@
 					</div>
 					{% endfor %}
 					<div class='left-page'>
+						{% if totalPage > 0 %}
 						<li class="left-li">
 							{% if page <= 1 %}
 							<span>没有上一页了</span>
 							{% else %}
-							<a href='/?page={{ page - 1}}'>上一页</a>
+							<a href='/?page={{ page - 1}}&category={{category}}'>上一页</a>
 							{% endif %}
 						</li>
-						<li class="center-li">
-							{{ page }} / {{ totalPage }}
+						<li class="center-li">							
+							{{ page }} / {{ totalPage }}							
 						</li>
 						<li class="right-li">
 							{% if page >= totalPage %}
 							<span>没有下一页了</span>
 							{% else %}
-							<a href='/?page={{ page + 1}}'>下一页</a>
+							<a href='/?page={{ page + 1}}&category={{category}}'>下一页</a>
 							{% endif %}
 						</li>
+						{% else %}
+						<li class='empty-li'>当前分类下没有文章</li>
+						{% endif %}
 					</div>					
 				</div>
 				<div class='main-right'>

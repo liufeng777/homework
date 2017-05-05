@@ -1,5 +1,6 @@
 body{
 	background-color: #eee;
+	font-family: '微软雅黑';
 }
 .container{
 	width:80%;
@@ -32,12 +33,14 @@ body{
 .nav ul li:hover{
 	border-bottom: 2px solid #ff4400;
 }
-.nav ul li a{
+.nav ul li a{	
 	font-size: 20px;
 	text-decoration: none;
 	color: #000;
 }
-
+.focus{
+	border-bottom: 2px solid #ff4400;
+}
 
 .main:after{
 	display: block;
@@ -60,7 +63,8 @@ body{
 }
 .main-infor span{
 	display: inline-block;
-	margin-left: 20px;
+	margin-right: 20px;
+	color: #2BB3D5;
 }
 .main-btn{
 	background-color: #ff4400;
@@ -76,23 +80,34 @@ body{
 .left-page{
 	width:100%;
 	margin-bottom:20px;
-	background-color: #fff;	
-	padding: 0 10px;	
+	background-color: #fff;			
 }
 .left-page li{
-	display: inline-block;
-	width: 33%;
+	display: inline-block;	
 	font-size: 16px;
-	color: #000;
+	height: 40px;
+	line-height: 40px;
 }
 .left-li{
+	width: 30%;	
+	color: #000;
 	text-align: left;
+	margin-left: 20px;
 }
 .center-li{
+	width: 30%;	
+	color: #000;
 	text-align: center;
 }
 .right-li{
+	width: 30%;
+	color: #000;
 	text-align: right;
+}
+.empty-li{
+	width: 100%;
+	text-align: center;
+	color: #ff4400;
 }
 .main-right{
 	width:30%;
