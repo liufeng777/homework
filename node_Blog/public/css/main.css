@@ -45,11 +45,6 @@ body{
 	border-bottom: 2px solid #ff4400;
 }
 
-.main:after{
-	display: block;
-	content: '';
-	clear: both;
-}
 .main-left{
 	width:60%;
 	float:left;	
@@ -117,28 +112,6 @@ body{
 	width: 100%;
 	text-align: center;
 	color: #ff4400;
-}
-.detail-left{
-	margin-bottom:20px;
-	background-color: #fff;	
-	padding:10px 20px 20px 20px;
-}
-.detail-title, .detail-infor{
-	width:100%;
-	text-align: center;
-	margin-bottom: 30px;
-}
-.detail-infor span{
-	display: inline-block;
-	margin-right: 20px;
-	color: #2BB3D5;
-}
-.detail-text{
-	font-size: 16px;
-	line-height: 20px;
-}
-.detail-btn{
-	margin: 0 auto;
 }
 .main-right{
 	width:30%;

@@ -9,7 +9,8 @@
 		<div class='main-infor'>							
 			作者：<span>{{ content.author.username }}</span>
 			发表时间：<span>{{ content.createTime | date('Y-m-d H:i:s', -8 * 60)}}</span>
-			阅读量：<span>{{ content.views }}</span>							
+			阅读量：<span>{{ content.views }}</span>	
+			评论：<span>{{ content.comments.length }}</span>						
 		</div>
 		<div class='main-content'>
 			<p>{{content.description}}</p>

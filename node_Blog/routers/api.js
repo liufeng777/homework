@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 // 引入数据库模型User
 const User = require('../models/User');
+const Content = require('../models/Content');
 
 // 验证注册信息后返回的格式
 let responseData;
@@ -119,5 +120,47 @@ router.post('/user/login', function(req, res, next) {
 router.get('/user/logout', function(req, res) {
 	req.cookies.set('userInfo', null);	
 	res.json(responseData);
+});
+
+// 获取所有评论
+router.get('/comment/get', function(req, res) {
+	// get方式传
+	const contentId = req.query.contentId || '';
+	Content.findOne({
+		_id: contentId,
+	}).then(function(content) {
+		responseData.data = content.comments;
+		res.json(responseData);
+	});
+});
+
+// 评论
+router.post('/comment/post', function(req, res) {
+	// 获取文章的ID
+	const contentId = req.body.contentId || '';
+	const postData = {
+		username: req.userInfo.username,
+		postTime: new Date(),
+		comment: req.body.comment,
+	};
+	if(postData.comment === '') {
+		responseData.code = 1;
+		responseData.message = '评论内容不能为空!';
+		res.json(responseData);
+		return;
+	}
+	// 查询当前文章，保存评论
+	Content.findOne({
+		_id: contentId,
+	}).then(function(content) {
+		content.comments.push(postData);
+		return content.save();
+	}).then(function(newContent) {
+		responseData.code = 0;
+		responseData.message = '评论成功!';
+		// 把包含新评论的文章返回给前端
+		responseData.data = newContent;
+		res.json(responseData);
+	});
 });
 module.exports = router;

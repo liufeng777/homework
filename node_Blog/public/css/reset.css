@@ -44,3 +44,8 @@ table {
 h3{
 	font-family: '宋体';
 }
+.clear-float:after {
+	display: inline-block;
+	content: "";
+	clear: both;
+}

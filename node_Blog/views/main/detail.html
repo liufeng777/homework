@@ -9,10 +9,42 @@
 		作者：<span>{{ content.author.username }}</span>
 		发表时间：<span>{{ content.createTime | date('Y-m-d H:i:s', -8 * 60)}}</span>
 		阅读量：<span>{{ content.views }}</span>	
+		评论：<span>{{ content.comments.length }}</span>
 	</p>
 	<p class="detail-text">{{ content.content }}</p>
 </div>
+<div class="comment">
+	<div class='comment-title clear-float'>
+		<p class="comment-title-left">评论</p>
+		<p class="comment-title-right">一共有<span id='comments-count' class="comments-count"></span>条评论</p>
+	</div>	
+	{% if userInfo._id %}
+	<div class="current-user">{{userInfo.username}}</div>
+	<div class="comment-form clear-float">
+		<form class="clear-float">
+			<textarea name='comment' cols="5" rows="7" id='comment-text'></textarea><br/>
+			<input type="hidden" id="contentId" value="{{ content._id.toString() }}"/>
+			<button type="submit" id='comment-btn'>评论</button>
+		</form>
+		<div id='responseData' class="responseData"></div>
+	</div>
+	{% else %}
+	<div class="comment-warning">您还未登录，请先登录！</div>
+	{% endif %}
+
+	<div class="comment-empty"></div>
+	<div class="comment-list">
+		<ul>
+		</ul>		
+	</div>	
+</div>
+<div class='comment-page'>
+	<span class='page-pre'></span>
+	<span class='page-current'></span>
+	<span class='page-next'></span>
+</div>		
 <div class='main-btn detail-btn'>
 	<a href='javascript:window.history.back()'>返回</a>
 </div>
+<script src='/public/js/comment.js'></script>
 {% endblock %}
