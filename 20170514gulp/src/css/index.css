@@ -1,0 +1,41 @@
+.center {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.first {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #ff0000;
+}
+.first .second {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #00ff00;
+}
+.first .second .third {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #0000ff;
+}
